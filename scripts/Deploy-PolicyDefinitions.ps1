@@ -161,7 +161,7 @@ Catch {
 If ($PSCmdlet.ParameterSetName -eq 'DeployDirToMG' -or $PSCmdlet.ParameterSetName -eq 'DeployDirToSub') {
   If ($Recursive) {
     Write-Verbose "A folder path with -Recursive switch is used. Retrieving all JSON files in the folder and its sub folders."
-    $DefinitionFile = (Get-ChildItem -Path $FolderPath -File -Filter '*.json' -Recursive).FullName
+    $DefinitionFile = (Get-ChildItem -Path $FolderPath -File -Filter '*.json' -Recurse).FullName
     Write-Verbose "Number of JSON files located in folder '$FolderPath': $($DefinitionFile.count)."
   }
   else {
